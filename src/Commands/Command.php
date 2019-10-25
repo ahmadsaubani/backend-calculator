@@ -74,4 +74,25 @@ class Command extends BaseCommand
 
         $outputInterface->writeln($this->result($getInput, $finalResult));
     }
+
+    protected function divide(InputInterface $inputInterface, OutputInterface $outputInterface)
+    {
+        $array = $inputInterface->getArgument('numbers');
+
+        $finalResult = $array[0];
+        
+        foreach ($array as $key => $arg) {
+            if ($key == 0) {
+                $getInput = "{$arg}";
+            } else {
+                $finalResult /= $arg;
+                $getInput .= " / {$arg}";
+            }
+        }
+
+        $getOutput = $getInput;
+        $getOutput .= " = {$finalResult}";
+
+        $outputInterface->writeln($this->result($getInput, $finalResult));
+    }
 }
