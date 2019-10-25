@@ -7,18 +7,18 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Jakmall\Recruitment\Calculator\Commands\Command;
 
-class AddCommand extends Command
+class SubtractCommand extends Command
 {
     public function configure()
     {
-        $this->setName('add')
-            ->setDescription('Add all given Numbers')
-            ->setHelp('This command allows you to add some numbers')
-            ->addArgument('numbers', InputArgument::IS_ARRAY, 'The numbers to be added');
+        $this->setName('subtract')
+            ->setDescription('Subtract all given Numbers')
+            ->setHelp('This command allows you to subtract some numbers')
+            ->addArgument('numbers', InputArgument::IS_ARRAY, 'The numbers to be subtracted');
     }
 
     public function execute(InputInterface $getInput, OutputInterface $getOutput)
     {
-        $this->add($getInput, $getOutput);
+        $this->subtract($getInput, $getOutput);
     }
 }
