@@ -95,4 +95,14 @@ class Command extends BaseCommand
 
         $outputInterface->writeln($this->result($getInput, $finalResult));
     }
+
+    protected function pow(InputInterface $inputInterface, OutputInterface $outputInterface)
+    {
+        $finalResult = pow($inputInterface->getArgument('base'), $inputInterface->getArgument('exp'));
+        $getInput = "{$inputInterface->getArgument('base')} ^ {$inputInterface->getArgument('exp')}";
+        $getOutput = $getInput;
+        $getOutput .= " = {$finalResult}";
+
+        $outputInterface->writeln($this->result($getInput, $finalResult));
+    }
 }
